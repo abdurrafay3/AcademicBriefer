@@ -75,5 +75,17 @@ def get_canvas_assignments():
                 continue
         return assignments_list
 
+def format_canvas_context(assignments: list[Assignment]) -> str:
+    return "".join(
+        f"{assignment.title}\n"
+        f"Course: {assignment.course_id}\n"
+        f"Due: {assignment.due_date}\n"
+        f"Available: {assignment.available}\n"
+        f"Max Points: {assignment.max_points}\n"
+        f"{assignment.description}\n\n"
+        for assignment in assignments
+    )
+
+
 if __name__ == "__main__":
     assignments_list = get_canvas_assignments()

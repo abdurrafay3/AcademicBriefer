@@ -127,10 +127,13 @@ def get_text_when_ready(locator, timeout=5000, interval=200):
     return locator.inner_text()  # Return whatever text is available after timeout
 
 
+def format_email_context(emails: list[Email]) -> str:
+    return "".join(f"{email.subject}\n{email.sender}\n{email.timestamp}\n{email.body}\n\n" for email in emails)
+
+
 def get_email_context() -> str:
     emails = get_emails()
-    email_context = "".join(f"{email.subject}\n{email.sender}\n{email.timestamp}\n{email.body}\n\n" for email in emails)
-    return email_context
+    return format_email_context(emails)
 
 if __name__ == "__main__":
    debug()
