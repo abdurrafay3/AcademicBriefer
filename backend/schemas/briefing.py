@@ -3,6 +3,7 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 from backend.schemas.email import EmailDigest
+from backend.services.courses.canvas_scraper import Assignment
 
 
 class BriefingResponse(BaseModel):
@@ -13,5 +14,5 @@ class BriefingResponse(BaseModel):
         ..., description="Status of syncing Canvas assignments to the calendar."
     )
     emails_scraped: int = Field(..., description="Number of emails fetched.")
-    assignments_scraped: int = Field(..., description="Number of Canvas assignments scraped.")
+    assignments: list[Assignment] = Field(default_factory=list, description="Canvas assignments scraped.")
     summary: EmailDigest | None = Field(None, description="LLM-generated summary of emails and Canvas assignments.")

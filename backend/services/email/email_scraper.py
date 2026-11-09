@@ -11,11 +11,11 @@ def first_login():
         page = context.new_page()
         page.goto("https://outlook.office.com/mail/inbox")
         # Perform actions on the page
-        page.fill("input[type='email']", "")
+        page.fill("input[type='email']", "your-email")
         page.click("input[type='submit']")
         page.wait_for_selector("input[type='password']", state="visible")
 
-        page.fill("input[type='password']", "")
+        page.fill("input[type='password']", "your-password")
         page.click("input[type='submit']")
         try:
             page.get_by_role("button", name="Yes").click(timeout=5000)  # Click "Yes" if prompted to stay signed in

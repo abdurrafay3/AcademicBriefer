@@ -9,3 +9,11 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# Benchmark results (latency runs contain real personal email/Canvas content)
+backend/benchmarks/results/
+# secrets
+state.json
+backend/services/calendar/credentials.json
+backend/services/calendar/token.json
+.env

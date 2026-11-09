@@ -13,7 +13,8 @@ class Email(BaseModel):
     body: str = Field(..., description="The body of the email")
 
 class EmailDigest(BaseModel):
-    deadlines: list[Deadline]   
+    summary: str = Field(..., description="A short narrative overview (3-5 sentences) of the day's important items.")
+    deadlines: list[Deadline]
     opportunities: list[Opportunity]
     events: list[Event]
     important_announcements: list[str]

@@ -58,6 +58,6 @@ class Orchestrator:
             canvas_status=canvas_status,
             calendar_status=calendar_status,
             emails_scraped=len(emails),
-            assignments_scraped=len(assignments),
+            assignments=assignments,
             summary=summary,
         )
